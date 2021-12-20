@@ -1,0 +1,9 @@
+<h1>Projetos Disponíveis VIA API</h1>
+
+
+<% @projects.each do |project| %>
+  <div>
+    <h2><%= project.title %></h2>
+    <%= project.description %>
+  </div>
+<% end %> 
