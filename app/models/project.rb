@@ -1,35 +1,34 @@
 class Project
   attr_accessor :title, :description
 
-  def initialize(hash_parameters)
-    @title = hash_parameters[:title]
-    @description = hash_parameters[:description]
+  def initialize(params)
+    @title = params[:title]
+    @description = params[:description]
   end
-
 
   def self.all
-    projects = []
-    response = Faraday.get("http://localhost:3000/api/v1/projects/")
+    result = []
+    response = Faraday.get('http://localhost:3000/api/v1/projects/')
+    return nil if response.status == 500
 
     if response.status == 200
-      data = JSON.parse(response.body)
+      data = JSON.parse(response.body, symbolize_names: true)
       data.each do |d|
-        projects << Project.new({ title: d["title"], description: d["description"] })
+        result << Project.new(d)
       end
     end
-
-    return projects
+    result
   end
-
 
   def self.find(id)
     project = nil
     response = Faraday.get("http://localhost:3000/api/v1/projects/#{id}")
     return nil if response.status == 404
+
     if response.status == 200
       data = JSON.parse(response.body)
-      project = Project.new({ title: data["title"], description: data["description"] })
+      project = Projects.new({ title: data['title'], description: data['description'] })
     end
-    return project
+    project
   end
-end 
+end

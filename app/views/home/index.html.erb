@@ -1,9 +1,13 @@
-<h1>Projetos Disponíveis VIA API</h1>
+<h1>Projetos disponíveis via API</h1>
 
 
-<% @projects.each do |project| %>
-  <div>
-    <h2><%= project.title %></h2>
-    <%= project.description %>
-  </div>
-<% end %> 
+<% if @projects.nil? %>
+  Não foi possível consultar os projetos no momento
+<% else %>
+  <% @projects.each do |project| %>
+    <div>
+      <h2><%= project.title %></h2>
+      <%= project.description %>
+    </div>
+  <% end %> 
+<% end %>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Desenvolvedor de Sites",
+    "description": "Desenvolver projeto de StandUp",
+    "requirements": "Sênioridade",
+    "maximum_value_per_hour": 40,
+    "end_date": "10/10/2022",
+    "working_model": 1
+  },
+  {
+    "id": 2,
+    "title": "Desenvolvedor de Apps",
+    "description": "Desenvolver App de Lanchonete",
+    "requirements": "Sênioridade",
+    "maximum_value_per_hour": 40,
+    "end_date": "10/10/2022",
+    "working_model": 1
+  }
+] 
