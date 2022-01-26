@@ -8,7 +8,7 @@ class Project
 
   def self.all
     result = []
-    response = Faraday.get('http://localhost:3000/api/v1/projects/')
+    response = Faraday.get('http://freelancer_now:3000/api/v1/projects/')
     return nil if response.status == 500
 
     if response.status == 200
@@ -22,7 +22,7 @@ class Project
 
   def self.find(id)
     project = nil
-    response = Faraday.get("http://localhost:3000/api/v1/projects/#{id}")
+    response = Faraday.get("http://freelancer_now/api/v1/projects/#{id}")
     return nil if response.status == 404
 
     if response.status == 200
